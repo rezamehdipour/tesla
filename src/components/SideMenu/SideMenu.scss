@@ -1,0 +1,175 @@
+#sidemenu-backdrop {
+	display: none;
+	opacity: 0;
+
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(5px);
+	z-index: 999;
+
+	transition-duration: 500ms;
+
+	&.show {
+		display: block;
+		opacity: 1;
+	}
+}
+
+#sidemenu {
+	display: flex;
+	flex-direction: column;
+
+	position: fixed;
+	top: 0;
+	right: -280px;
+	opacity: 0;
+
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 8px 16px 0px;
+
+	z-index: 1000;
+
+	padding: 1.5rem;
+
+	width: 280px;
+	height: 100vh;
+
+	transition-duration: 500ms;
+	&.show {
+		right: 0;
+		opacity: 1;
+	}
+
+	.controls {
+		display: flex;
+		padding-bottom: 24px;
+
+		.close {
+			padding: 5px;
+			border-radius: 50%;
+			margin-left: auto;
+			transition-duration: 500ms;
+			&:hover {
+				background-color: rgba(0, 0, 0, 0.05);
+			}
+		}
+
+		.back {
+			display: flex;
+			align-items: center;
+			font-size: 12px;
+
+			span {
+				font-weight: 500;
+				color: #393c41;
+			}
+		}
+	}
+
+	.scrollable-menu {
+		flex-basis: 100%;
+		overflow-y: auto;
+		.menu {
+			li {
+				margin-bottom: 0.5rem;
+				a {
+					display: block;
+					font-size: 14px;
+					font-weight: 500;
+					text-transform: capitalize;
+					padding: 0.5rem;
+					transition-duration: 500ms;
+					border-radius: 0.75rem;
+					&:hover {
+						background-color: rgba(0, 0, 0, 0.05);
+					}
+				}
+			}
+		}
+		.lang {
+			cursor: pointer;
+			display: flex;
+			padding: 0.5rem;
+			border-radius: 0.75rem;
+			transition-duration: 500ms;
+			&:hover {
+				background-color: rgba(0, 0, 0, 0.05);
+			}
+
+			.icon {
+				font-size: 25px;
+				margin-right: 7px;
+			}
+
+			.texts {
+				.country {
+					font-size: 14px;
+					font-weight: 600;
+					color: #181b21;
+					margin-bottom: 5px;
+				}
+				.language {
+					position: relative;
+					font-size: 12px;
+					font-weight: 500;
+					color: rgb(92, 93, 97);
+
+					&::after {
+						content: "";
+						background-color: black;
+						bottom: 0;
+						width: 100%;
+					}
+				}
+			}
+		}
+		.language-area {
+			padding-right: 5px;
+			margin-bottom: 24px;
+			.continent {
+				padding-right: 12px;
+				padding-left: 12px;
+				font-size: 24px;
+				font-weight: 500;
+				text-transform: capitalize;
+				padding-bottom: 12px;
+			}
+			ol {
+				li {
+					border-radius: 12px;
+					padding: 8px 12px;
+					margin-bottom: 7px;
+					&.active {
+						background-color: rgba(0, 0, 0, 0.05);
+					}
+					.country {
+						margin-bottom: 5px;
+						h4 {
+							text-transform: capitalize;
+							font-size: 14px;
+							font-weight: 500;
+							color: #181b21;
+						}
+					}
+					.languages {
+						text-transform: capitalize;
+						a {
+							color: #5c5d61;
+							font-size: 12px;
+							margin-right: 10px;
+							&:nth-last-child(1) {
+								margin-right: 0px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
