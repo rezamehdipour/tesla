@@ -2,12 +2,7 @@
 
 Tesla Home Page Clone
 
-<br>
-React 17
-<br>
-Redux
-<br>
-Scss
+React 17, Redux, Scss
 
 <a href="https://rezamehdipour.ir/tesla">[ Live Preview ]</a>
 
