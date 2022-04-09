@@ -19,7 +19,7 @@
 		.title {
 			font-size: 40px;
 			font-weight: 500;
-			color: rgb(57, 60, 65);
+			color: var(--secondary);
 			margin-bottom: 5px;
 			text-transform: capitalize;
 			@media (max-width: 599px) {
@@ -28,7 +28,7 @@
 		}
 		.subtitle {
 			font-size: 14px;
-			color: rgb(92, 93, 97);
+			color: var(--tertiary);
 			a {
 				text-decoration: underline;
 			}

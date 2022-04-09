@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 // Reducers
-import sectionPresenterDataReducer from './sectionPresenter/sectionPresenterDataSlice';
-import sideMenuShowReducer from './sideMenu/sideMenuShowSlice';
+import sectionPresenterDataReducer from "./sectionPresenter/sectionPresenterDataSlice";
+import sideMenuReducer from "./sideMenu/sideMenuSlice";
 
 export default configureStore({
 	reducer: {
@@ -10,6 +10,6 @@ export default configureStore({
 		sectionPresenterData: sectionPresenterDataReducer,
 
 		// sideMenu
-		sideMenuShow: sideMenuShowReducer
-	}
-})
+		sideMenu: sideMenuReducer,
+	},
+});

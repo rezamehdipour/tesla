@@ -1,16 +1,18 @@
 import { useState } from "react";
-import { Link as Scroll } from "react-scroll";
 
 // Redux
 import { useDispatch } from "react-redux";
 import { setSectionPresenterData } from "../../redux/sectionPresenter/sectionPresenterDataSlice";
-import { toggleSideMenuShow } from "../../redux/sideMenu/sideMenuShowSlice";
+import { toggleSideMenu } from "../../redux/sideMenu/sideMenuSlice";
+
+// Libraries
+import { Link as Scroll } from "react-scroll";
+
+// Components
+import Modal from "../Modal/Modal";
 
 // Svg
 import TeslaLogo from "../../svg/TeslaLogo";
-
-// Components
-import AboutPopup from "../AboutPopup/AboutPopup";
 
 // Scss
 import "./Header.scss";
@@ -26,7 +28,8 @@ const Header = (props) => {
 	const productsData = {
 		modelS: {
 			title: "model s",
-			subtitle: "Order Online for <a href='https://www.tesla.com/support/taking-delivery?redirect=no' target='_blank'>Touchless Delivery</a>",
+			subtitle:
+				"Order Online for <a href='https://www.tesla.com/support/taking-delivery?redirect=no' target='_blank'>Touchless Delivery</a>",
 			buttons: [
 				{
 					title: "custom order",
@@ -41,7 +44,8 @@ const Header = (props) => {
 		// ——————————
 		model3: {
 			title: "model 3",
-			subtitle: "Order Online for <a href='https://www.tesla.com/support/taking-delivery?redirect=no' target='_blank'>Touchless Delivery</a>",
+			subtitle:
+				"Order Online for <a href='https://www.tesla.com/support/taking-delivery?redirect=no' target='_blank'>Touchless Delivery</a>",
 			buttons: [
 				{
 					title: "custom order",
@@ -56,7 +60,8 @@ const Header = (props) => {
 		// ——————————
 		modelX: {
 			title: "model x",
-			subtitle: "Order Online for <a href='https://www.tesla.com/support/taking-delivery?redirect=no' target='_blank'>Touchless Delivery</a>",
+			subtitle:
+				"Order Online for <a href='https://www.tesla.com/support/taking-delivery?redirect=no' target='_blank'>Touchless Delivery</a>",
 			buttons: [
 				{
 					title: "custom order",
@@ -71,7 +76,8 @@ const Header = (props) => {
 		// ——————————
 		modelY: {
 			title: "model y",
-			subtitle: "Order Online for <a href='https://www.tesla.com/support/taking-delivery?redirect=no' target='_blank'>Touchless Delivery</a>",
+			subtitle:
+				"Order Online for <a href='https://www.tesla.com/support/taking-delivery?redirect=no' target='_blank'>Touchless Delivery</a>",
 			buttons: [
 				{
 					title: "custom order",
@@ -115,9 +121,9 @@ const Header = (props) => {
 		},
 	};
 
-	const handleToggleSideMenuShow = (e) => {
+	const handleToggleSideMenu = (e) => {
 		e.preventDefault();
-		dispatch(toggleSideMenuShow());
+		dispatch(toggleSideMenu());
 	};
 
 	// Popup
@@ -128,10 +134,10 @@ const Header = (props) => {
 
 	return (
 		<>
-			<AboutPopup show={showPopup} toggleShow={handleToggleShowPopup} />
+			<Modal show={showPopup} toggleShow={handleToggleShowPopup} />
 			<header id="header">
 				<div className="container mx-auto">
-					<div className="logo flex-center" onClick={() => handleToggleShowPopup()}>
+					<div className="logo" onClick={() => handleToggleShowPopup()}>
 						<TeslaLogo />
 					</div>
 					<ol>
@@ -139,7 +145,15 @@ const Header = (props) => {
 							<Scroll to="model-s" smooth={true} duration={500} offset={0}>
 								model s
 							</Scroll>
-							<Scroll className="hidden" to="model-s" spy={true} offset={-200} onSetActive={(elementId, element) => handleChangeSectionPresenter(elementId, element, productsData.modelS)}>
+							<Scroll
+								className="hidden"
+								to="model-s"
+								spy={true}
+								offset={-200}
+								onSetActive={(elementId, element) =>
+									handleChangeSectionPresenter(elementId, element, productsData.modelS)
+								}
+							>
 								model s
 							</Scroll>
 						</li>
@@ -147,7 +161,15 @@ const Header = (props) => {
 							<Scroll to="model-3" smooth={true} duration={500}>
 								model 3
 							</Scroll>
-							<Scroll className="hidden" to="model-3" spy={true} offset={-200} onSetActive={(elementId, element) => handleChangeSectionPresenter(elementId, element, productsData.model3)}>
+							<Scroll
+								className="hidden"
+								to="model-3"
+								spy={true}
+								offset={-200}
+								onSetActive={(elementId, element) =>
+									handleChangeSectionPresenter(elementId, element, productsData.model3)
+								}
+							>
 								model 3
 							</Scroll>
 						</li>
@@ -155,7 +177,15 @@ const Header = (props) => {
 							<Scroll to="model-x" smooth={true} duration={500} offset={0}>
 								model x
 							</Scroll>
-							<Scroll className="hidden" to="model-x" spy={true} offset={-200} onSetActive={(elementId, element) => handleChangeSectionPresenter(elementId, element, productsData.modelX)}>
+							<Scroll
+								className="hidden"
+								to="model-x"
+								spy={true}
+								offset={-200}
+								onSetActive={(elementId, element) =>
+									handleChangeSectionPresenter(elementId, element, productsData.modelX)
+								}
+							>
 								model x
 							</Scroll>
 						</li>
@@ -163,7 +193,15 @@ const Header = (props) => {
 							<Scroll to="model-y" smooth={true} duration={500} offset={0}>
 								model y
 							</Scroll>
-							<Scroll className="hidden" to="model-y" spy={true} offset={-200} onSetActive={(elementId, element) => handleChangeSectionPresenter(elementId, element, productsData.modelY)}>
+							<Scroll
+								className="hidden"
+								to="model-y"
+								spy={true}
+								offset={-200}
+								onSetActive={(elementId, element) =>
+									handleChangeSectionPresenter(elementId, element, productsData.modelY)
+								}
+							>
 								model y
 							</Scroll>
 						</li>
@@ -171,7 +209,15 @@ const Header = (props) => {
 							<Scroll to="solar-roof" smooth={true} duration={500} offset={0}>
 								solar roof
 							</Scroll>
-							<Scroll className="hidden" to="solar-roof" spy={true} offset={-200} onSetActive={(elementId, element) => handleChangeSectionPresenter(elementId, element, productsData.solarRoof)}>
+							<Scroll
+								className="hidden"
+								to="solar-roof"
+								spy={true}
+								offset={-200}
+								onSetActive={(elementId, element) =>
+									handleChangeSectionPresenter(elementId, element, productsData.solarRoof)
+								}
+							>
 								solar roof
 							</Scroll>
 						</li>
@@ -179,7 +225,15 @@ const Header = (props) => {
 							<Scroll to="solar-panels" smooth={true} duration={500} offset={0}>
 								solar panels
 							</Scroll>
-							<Scroll className="hidden" to="solar-panels" spy={true} offset={-200} onSetActive={(elementId, element) => handleChangeSectionPresenter(elementId, element, productsData.solarPanels)}>
+							<Scroll
+								className="hidden"
+								to="solar-panels"
+								spy={true}
+								offset={-200}
+								onSetActive={(elementId, element) =>
+									handleChangeSectionPresenter(elementId, element, productsData.solarPanels)
+								}
+							>
 								solar panels
 							</Scroll>
 						</li>
@@ -196,14 +250,14 @@ const Header = (props) => {
 							</a>
 						</li>
 						<li>
-							<a href="/" onClick={(e) => handleToggleSideMenuShow(e)}>
+							<a href="/" onClick={(e) => handleToggleSideMenu(e)}>
 								menu
 							</a>
 						</li>
 					</ol>
 					<ol>
 						<li>
-							<a href="/" onClick={(e) => handleToggleSideMenuShow(e)}>
+							<a href="/" onClick={(e) => handleToggleSideMenu(e)}>
 								menu
 							</a>
 						</li>

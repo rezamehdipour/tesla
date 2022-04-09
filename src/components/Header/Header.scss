@@ -3,7 +3,7 @@
 	top: 0;
 	right: 0;
 	left: 0;
-	color: var(--header-menu);
+	color: var(--primary);
 
 	.container {
 		display: flex;
@@ -13,6 +13,9 @@
 
 		.logo {
 			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			svg {
 				height: 15px;
 			}

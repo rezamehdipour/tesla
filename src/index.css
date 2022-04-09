@@ -1,11 +1,5 @@
 @import url("./reset.css");
 
-:root {
-	--header-menu: #181b21;
-	--section-title: #393c41;
-	--section-subtitle: #5c5d61;
-}
-
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -14,11 +8,17 @@
 	font-family: "Encode Sans Expanded", sans-serif;
 }
 
+:root {
+	--primary: #181b21;
+	--secondary: #393c41;
+	--tertiary: #5c5d61;
+}
+
 body {
 	overflow-x: hidden;
 }
 
-/* Container Media Queries */
+/* Container (with Media Queries) */
 .container {
 	width: calc(100% - 30px);
 }
@@ -29,21 +29,6 @@ body {
 }
 
 /* Predefined Classes */
-.flex {
-	display: flex;
-}
-.flex-center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.justify-center {
-	justify-content: center;
-}
-.items-center {
-	align-items: center;
-}
-
 .hidden {
 	display: none;
 }
@@ -55,13 +40,6 @@ body {
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
-}
-
-.uppercase {
-	text-transform: uppercase;
-}
-.capitalize {
-	text-transform: capitalize;
 }
 
 .show-till-1200 {

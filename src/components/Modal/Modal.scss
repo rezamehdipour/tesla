@@ -1,0 +1,79 @@
+#modal {
+	z-index: 100000000;
+
+	.backdrop {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+
+		backdrop-filter: blur(5px);
+
+		width: 100vw;
+		height: 100vh;
+
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+
+	.container {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		width: 80vw;
+		max-width: 500px;
+		background-color: white;
+		padding: 3rem;
+		text-align: center;
+		border-radius: 5px;
+		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+		.close {
+			position: absolute;
+			top: 8px;
+			right: 8px;
+
+			border-radius: 50%;
+			padding: 5px;
+
+			font-size: 20px;
+			cursor: pointer;
+			&:hover {
+				background-color: rgba(0, 0, 0, 0.05);
+			}
+		}
+
+		.header {
+			margin-bottom: 2rem;
+
+			.projectName {
+				font-weight: bold;
+				margin-bottom: 0.25rem;
+			}
+		}
+
+		.socials {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			a {
+				cursor: pointer;
+				font-size: 28px;
+				margin-right: 20px;
+				&:nth-last-child(1) {
+					margin-right: 0px;
+				}
+				&:hover {
+					&.github {
+						color: #f7900e;
+					}
+					&.linkedin {
+						color: #0077b5;
+					}
+				}
+			}
+		}
+	}
+}

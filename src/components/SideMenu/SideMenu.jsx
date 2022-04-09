@@ -3,7 +3,7 @@ import { Link as Scroll } from "react-scroll";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
-import { toggleSideMenuShow } from "../../redux/sideMenu/sideMenuShowSlice";
+import { toggleSideMenu } from "../../redux/sideMenu/sideMenuSlice";
 
 // Svg
 import { VscChromeClose } from "react-icons/vsc";
@@ -32,12 +32,10 @@ const Menu = (props) => {
 		{ title: "investor relations", url: "https://ir.tesla.com/" },
 	];
 
-	const showSideMenu = useSelector((state) => {
-		return state.sideMenuShow;
-	});
+	const showSideMenu = useSelector((state) => state.sideMenu);
 
-	const handleToggleSideMenuShow = () => {
-		dispatch(toggleSideMenuShow());
+	const handleToggleSideMenu = () => {
+		dispatch(toggleSideMenu());
 	};
 
 	const [languagesMenuShow, setLanguagesMenuShow] = useState(false);
@@ -83,16 +81,20 @@ const Menu = (props) => {
 
 	return (
 		<>
-			<div id="sidemenu-backdrop" className={showSideMenu === true ? "show" : null} onClick={(e) => handleToggleSideMenuShow(e)}></div>
+			<div
+				id="sidemenu-backdrop"
+				className={showSideMenu === true ? "show" : null}
+				onClick={(e) => handleToggleSideMenu(e)}
+			></div>
 			<aside id="sidemenu" className={showSideMenu === true ? "show" : null}>
 				<div className="controls">
 					{languagesMenuShow && (
 						<button className="back" onClick={() => handleLanguageMenuShow()}>
 							<HiOutlineChevronLeft width="5px" />
-							<span className="capitalize">back</span>
+							<span>Back</span>
 						</button>
 					)}
-					<button className="close" onClick={(e) => handleToggleSideMenuShow(e)}>
+					<button className="close" onClick={(e) => handleToggleSideMenu(e)}>
 						<VscChromeClose />
 					</button>
 				</div>
@@ -121,12 +123,24 @@ const Menu = (props) => {
 									</Scroll>
 								</li>
 								<li className="show-till-1200">
-									<Scroll to="solar-roof" spy={true} smooth={true} duration={500} offset={0}>
+									<Scroll
+										to="solar-roof"
+										spy={true}
+										smooth={true}
+										duration={500}
+										offset={0}
+									>
 										solar roof
 									</Scroll>
 								</li>
 								<li className="show-till-1200">
-									<Scroll to="solar-panels" spy={true} smooth={true} duration={500} offset={0}>
+									<Scroll
+										to="solar-panels"
+										spy={true}
+										smooth={true}
+										duration={500}
+										offset={0}
+									>
 										solar panels
 									</Scroll>
 								</li>
@@ -141,7 +155,7 @@ const Menu = (props) => {
 								})}
 							</ol>
 							<div className="lang" onClick={() => handleLanguageMenuShow()}>
-								<div className="icon flex-center">
+								<div className="icon">
 									<IoIosGlobe />
 								</div>
 								<div className="texts">
@@ -160,7 +174,10 @@ const Menu = (props) => {
 									<ol>
 										{language.countries.map(({ country, languages }, index) => {
 											return (
-												<li key={index} className={country === "united states" ? "active" : null}>
+												<li
+													key={index}
+													className={country === "united states" ? "active" : null}
+												>
 													<div className="country">
 														<h4>{country}</h4>
 													</div>
