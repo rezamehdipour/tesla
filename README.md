@@ -1,6 +1,7 @@
 # Tesla HomePage Clone
 
 Tesla Home Page Clone
+<br>
 React 17
 Redux
 Scss
